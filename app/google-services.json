@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "343391266535",
+    "project_id": "swapit-47dc7",
+    "storage_bucket": "swapit-47dc7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:343391266535:android:0b80343088dcfe56126442",
+        "android_client_info": {
+          "package_name": "com.example.swapit"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD4ITtCAQToqSEZZIis9JK0SnDjlQ7hKhM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
