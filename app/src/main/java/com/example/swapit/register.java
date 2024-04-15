@@ -59,7 +59,7 @@ public class register extends AppCompatActivity {
                                 Toast.makeText(register.this, "Email is already registered ", Toast.LENGTH_SHORT).show();
                             } else {
                                 //sending data to  firebase realtime database
-                                DatabaseReference newUserRef = databaseReference.child(String.valueOf(phone));
+                                DatabaseReference newUserRef = databaseReference.child("users").child(emailText);
                                 newUserRef.child("fullname").setValue(fullNameText);
                                 newUserRef.child("mail").setValue(email);
                                 newUserRef.child("password").setValue(passwordText);
@@ -72,6 +72,8 @@ public class register extends AppCompatActivity {
 
                         @Override
                         public void onCancelled(@NonNull DatabaseError error) {
+                            Toast.makeText(register.this, "Erreur:"+error.getMessage(), Toast.LENGTH_SHORT).show();
+
 
                         }
 
