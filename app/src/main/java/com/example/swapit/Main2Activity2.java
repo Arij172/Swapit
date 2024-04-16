@@ -26,8 +26,9 @@ public class Main2Activity2 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
 
-        final EditText email = findViewById(R.id.inputEmail);
+        final EditText phone = findViewById(R.id.inputPhone);
         final EditText password = findViewById(R.id.inputPassword);
+
         final Button loginBtn = findViewById(R.id.btnlogin);
         final TextView registerNow = findViewById(R.id.textViewSignUp);
 
@@ -37,19 +38,19 @@ public class Main2Activity2 extends AppCompatActivity {
         loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                final String emailTxt = email.getText().toString();
+                final String phoneTxt = phone.getText().toString();
                 final String passwordTxt = password.getText().toString();
 
-                if (emailTxt.isEmpty() || passwordTxt.isEmpty()) {
+                if (phoneTxt.isEmpty() || passwordTxt.isEmpty()) {
                     Toast.makeText(Main2Activity2.this, "Please enter your email and password", Toast.LENGTH_SHORT).show();
                 } else {
                     // Check if the entered credentials exist in the database
                     usersRef.addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                            if (dataSnapshot.child(emailTxt).exists()) {
+                            if (dataSnapshot.child(phoneTxt).exists()) {
                                 // User exists, check password
-                                String storedPassword = dataSnapshot.child(emailTxt).child("password").getValue(String.class);
+                                String storedPassword = dataSnapshot.child(phoneTxt).child("password").getValue(String.class);
                                 if (passwordTxt.equals(storedPassword)) {
                                     // Password matches, login successful
                                     Intent intent = new Intent(Main2Activity2.this, HomeActivity.class);
