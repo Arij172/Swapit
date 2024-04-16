@@ -26,11 +26,11 @@ public class register extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
-         databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://swapit-47dc7-default-rtdb.firebaseio.com/");
+        databaseReference = FirebaseDatabase.getInstance().getReference().child("users");
 
         final EditText fullName= findViewById(R.id.inputUsername);
         final EditText email=findViewById(R.id.inputEmail);
-        final EditText phone=findViewById(R.id.inputPhone);
+        final EditText phone = findViewById(R.id.inputPhone);
         final EditText password=findViewById(R.id.inputPassword);
         final EditText conpassword=findViewById(R.id.inputConformPassword);
         final Button registerBtn=findViewById(R.id.btnRegister);
@@ -50,18 +50,17 @@ public class register extends AppCompatActivity {
                 } else if (!passwordText.equals(confirmPasswordText)) {
                     Toast.makeText(register.this, "Passwords are not matching", Toast.LENGTH_SHORT).show();
                 } else {
-                    databaseReference.child("users").addListenerForSingleValueEvent(new ValueEventListener() {
+                    databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
-                            //using email as unique identity of every user
-                            // check if email is not registered before
-                            if (snapshot.hasChild(emailText)) {
-                                Toast.makeText(register.this, "Email is already registered ", Toast.LENGTH_SHORT).show();
+                            // Check if phone number is already registered
+                            if (snapshot.hasChild(phoneText)) {
+                                Toast.makeText(register.this, "Phone number is already registered ", Toast.LENGTH_SHORT).show();
                             } else {
-                                //sending data to  firebase realtime database
-                                DatabaseReference newUserRef = databaseReference.child("users").child(emailText);
+                                // Sending data to Firebase Realtime Database
+                                DatabaseReference newUserRef = databaseReference.child(phoneText);
                                 newUserRef.child("fullname").setValue(fullNameText);
-                                newUserRef.child("mail").setValue(email);
+                                newUserRef.child("email").setValue(emailText);
                                 newUserRef.child("password").setValue(passwordText);
                                 Toast.makeText(register.this, "User registered successfully", Toast.LENGTH_SHORT).show();
                                 finish();
@@ -72,7 +71,7 @@ public class register extends AppCompatActivity {
 
                         @Override
                         public void onCancelled(@NonNull DatabaseError error) {
-                            Toast.makeText(register.this, "Erreur:"+error.getMessage(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(register.this, "Error: " + error.getMessage(), Toast.LENGTH_SHORT).show();
 
 
                         }
@@ -97,4 +96,10 @@ public class register extends AppCompatActivity {
 
             }
         });
-    }}
+
+    }
+    // Method to encode email address for Firebase Database key
+    private String encodeEmail(String email) {
+        return email.replace(".", ",");
+    }
+}
