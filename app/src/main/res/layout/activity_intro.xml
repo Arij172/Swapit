@@ -9,51 +9,49 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="#FAE6CA"
+        android:layout_width="407dp"
+        android:layout_height="381dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.07"
+        app:srcCompat="@drawable/p1"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="276dp"
+        android:layout_height="132dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="350dp"
+        android:text="WELCOME TO SWAPIT"
+        android:textColor="@color/teel_200"
+        android:textSize="40sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.092"
-        app:srcCompat="@drawable/p1"
-        tools:ignore="MissingConstraints"
-        tools:srcCompat="@drawable/p1" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="272dp"
-        android:layout_height="92dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="350dp"
-        android:text="Welcome to SwapIt"
-        android:textColor="#000000"
-        android:textSize="40sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.064"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.302" />
+        app:layout_constraintVertical_bias="0.286" />
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="267dp"
-        android:layout_height="104dp"
-        android:text="Exchange Anything, Anywhere with Swap it"
-        android:textAlignment="center"
-        android:textAllCaps="true"
-        android:textColor="@color/teel_200"
+        android:layout_width="342dp"
+        android:layout_height="125dp"
+        android:text="Seamless Swaps, Boundless Opportunities: Exchange Anything, Anywhere with Swap it, Your Exchange Hub."
+        android:textAlignment="gravity"
+        android:textAllCaps="false"
+        android:textColor="#5C5C5C"
         android:textSize="20sp"
-        android:textStyle="bold"
+        android:textStyle="normal|italic"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.434"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:layout_constraintVertical_bias="0.181" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/button"
@@ -61,17 +59,17 @@
         android:layout_height="65dp"
         android:background="@drawable/background_button_intro"
         android:gravity="center"
+        android:onClick="openMain"
         android:shadowColor="#0EA79B"
-        android:text="get started"
-        android:textColor="@color/black"
-        android:textColorLink="#291D1D"
+        android:text="Get started"
+        android:textColor="@color/colorWhite"
 
-        android:textSize="25sp"
+        android:textColorLink="#291D1D"
+        android:textSize="20sp"
         android:textStyle="bold"
         app:backgroundTint="#0EA79B"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:strokeColor="#707070"
-        android:onClick="openMain"/>
+        app:strokeColor="#707070" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
