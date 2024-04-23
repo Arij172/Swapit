@@ -1,4 +1,6 @@
 package com.example.swapit;
 
-public class favoritesFragment extends HomeFragment {
+import androidx.fragment.app.Fragment;
+
+public class favoritesFragment extends Fragment {
 }
