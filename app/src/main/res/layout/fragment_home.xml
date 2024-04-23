@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    tools:context=".HomeFragment">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:contentDescription="@string/app_name">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/imageView5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:srcCompat="@drawable/a5"
+                tools:ignore="ContentDescription" />
+
+            <SearchView
+                android:id="@+id/searchView"
+                android:layout_width="411dp"
+                android:layout_height="43dp"
+                android:layout_marginTop="36dp"
+                android:background="@drawable/search"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@id/searchView" />
+
+            </SearchView>
+
+            <HorizontalScrollView
+                android:id="@+id/amazonImage"
+                android:layout_width="401dp"
+                android:layout_height="346dp"
+                android:layout_marginTop="95dp"
+                android:contentDescription="horiz"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <LinearLayout
+                    android:layout_width="400dp"
+                    android:layout_height="400dp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/imageView9"
+                        android:layout_width="350dp"
+                        android:layout_height="350dp"
+                        android:src="@drawable/a" />
+
+                    <ImageView
+                        android:id="@+id/imageView10"
+                        android:layout_width="350dp"
+                        android:layout_height="350dp"
+                        android:src="@drawable/b" />
+
+                    <ImageView
+                        android:id="@+id/imageView11"
+                        android:layout_width="350dp"
+                        android:layout_height="350dp"
+                        android:src="@drawable/c" />
+
+                </LinearLayout>
+            </HorizontalScrollView>
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="350dp"
+                android:layout_height="32dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="45dp"
+                android:text="latest articals "
+                android:textAlignment="center"
+                android:textAllCaps="true"
+                android:textColor="@color/yello"
+                android:textSize="25sp"
+                android:textStyle="bold|italic"
+                app:layout_constraintBottom_toTopOf="@+id/row1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/amazonImage" />
+
+            <LinearLayout
+                android:id="@+id/row1"
+                android:layout_width="0dp"
+                android:layout_height="175dp"
+                android:layout_marginTop="44dp"
+                android:orientation="horizontal"
+                android:padding="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/amazonImage">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/clothingCard"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    app:cardCornerRadius="20dp"
+                    app:cardElevation="20dp"
+                    tools:layout_editor_absoluteX="20dp"
+                    tools:layout_editor_absoluteY="350dp">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        tools:layout_editor_absoluteX="20dp"
+                        tools:layout_editor_absoluteY="350dp">
+
+                        <TextView
+                            android:id="@+id/clothingName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/clothingImage"
+                            android:layout_centerHorizontal="true"
+
+                            android:text="Clothing"
+                            android:textColor="@color/teel_200"
+                            android:textSize="20sp"
+                            tools:layout_editor_absoluteX="70dp"
+                            tools:layout_editor_absoluteY="445dp" />
+
+                        <ImageView
+                            android:id="@+id/clothingImage"
+                            android:layout_width="70dp"
+                            android:layout_height="70dp"
+                            android:layout_centerHorizontal="true"
+                            android:src="@drawable/n11"
+                            tools:layout_editor_absoluteX="72dp"
+                            tools:layout_editor_absoluteY="365dp" />
+
+                    </RelativeLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    app:cardCornerRadius="20dp"
+                    app:cardElevation="20dp"
+                    tools:layout_editor_absoluteX="215dp"
+                    tools:layout_editor_absoluteY="350dp">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        tools:layout_editor_absoluteX="215dp"
+                        tools:layout_editor_absoluteY="350dp">
+
+                        <TextView
+                            android:id="@+id/elecName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/elecImage"
+                            android:layout_centerHorizontal="true"
+
+                            android:text="Electronics"
+                            android:textColor="@color/teel_200"
+                            android:textSize="20sp"
+                            tools:layout_editor_absoluteX="253dp"
+                            tools:layout_editor_absoluteY="445dp" />
+
+                        <ImageView
+                            android:id="@+id/elecImage"
+                            android:layout_width="70dp"
+                            android:layout_height="70dp"
+                            android:layout_centerHorizontal="true"
+                            android:src="@drawable/n11"
+                            tools:layout_editor_absoluteX="268dp"
+                            tools:layout_editor_absoluteY="365dp" />
+
+                    </RelativeLayout>
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/row2"
+                android:layout_width="238dp"
+                android:layout_height="137dp"
+                android:layout_marginTop="32dp"
+                android:orientation="horizontal"
+                android:padding="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.497"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/row1">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    app:cardCornerRadius="20dp"
+                    app:cardElevation="20dp"
+                    tools:layout_editor_absoluteX="20dp"
+                    tools:layout_editor_absoluteY="535dp">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        tools:layout_editor_absoluteX="20dp"
+                        tools:layout_editor_absoluteY="535dp">
+
+                        <TextView
+                            android:id="@+id/homeName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/homeImage"
+                            android:layout_centerHorizontal="true"
+
+                            android:text="Home"
+                            android:textColor="@color/teel_200"
+                            android:textSize="20sp"
+                            tools:layout_editor_absoluteX="178dp"
+                            tools:layout_editor_absoluteY="630dp" />
+
+                        <ImageView
+                            android:id="@+id/homeImage"
+                            android:layout_width="70dp"
+                            android:layout_height="70dp"
+                            android:layout_centerHorizontal="true"
+                            android:src="@drawable/n11"
+                            tools:layout_editor_absoluteX="170dp"
+                            tools:layout_editor_absoluteY="550dp" />
+
+                    </RelativeLayout>
+                </androidx.cardview.widget.CardView>
+
+
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</FrameLayout>

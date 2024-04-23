@@ -23,6 +23,13 @@
         <activity
             android:name=".Main2Activity2"
             android:exported="false" />
+        <activity android:name=".MainActivity3"
+            android:exported="false" />
+        <activity android:name=".notificationFragment"
+            android:exported="false" />
+        <activity android:name=".SettingFragment"
+            android:exported="false" />
+
         <activity
             android:name=".MainActivity"
             android:exported="true">

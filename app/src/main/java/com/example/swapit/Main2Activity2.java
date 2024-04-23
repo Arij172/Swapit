@@ -53,7 +53,7 @@ public class Main2Activity2 extends AppCompatActivity {
                                 String storedPassword = dataSnapshot.child(phoneTxt).child("password").getValue(String.class);
                                 if (passwordTxt.equals(storedPassword)) {
                                     // Password matches, login successful
-                                    Intent intent = new Intent(Main2Activity2.this, HomeActivity.class);
+                                    Intent intent = new Intent(Main2Activity2.this, MainActivity3.class);
                                     startActivity(intent);
                                     finish(); // Close current activity
                                 } else {
