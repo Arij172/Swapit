@@ -1,5 +1,6 @@
 package com.example.swapit;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,12 +22,25 @@ import com.google.firebase.database.FirebaseDatabase;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 
 public class addFragment extends Fragment {
-    private static final int REQUEST_CODE_PICK_IMAGE = 1;
+
     private static final int MAX_IMAGES = 3;
     private final ArrayList<Uri> imageUris = new ArrayList<>();
     private DatabaseReference mDatabase;
+    private ImageView imageView1;
+    private ImageView imageView2;
+    private ImageView imageView3;
+    private final ActivityResultLauncher<Intent> galleryLauncher = registerForActivityResult(
+            new ActivityResultContracts.StartActivityForResult(),
+            result -> {
+                if (result.getResultCode() == Activity.RESULT_OK && result.getData() != null) {
+                    handleGalleryResult(result.getData());
+                }
+            }
+    );
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -39,10 +53,11 @@ public class addFragment extends Fragment {
         final EditText locationEditText = view.findViewById(R.id.locationEditText);
         final EditText phoneEditText = view.findViewById(R.id.phoneEditText);
         Button addButton = view.findViewById(R.id.addButton);
-        final CardView imageCardView = view.findViewById(R.id.cardView);
-        final ImageView imageView1 = view.findViewById(R.id.imageView1);
-        final ImageView imageView2 = view.findViewById(R.id.imageView2);
-        final ImageView imageView3 = view.findViewById(R.id.imageView3);
+        final CardView imageCardView = view.findViewById(R.id.cardView2);
+        imageView1 = view.findViewById(R.id.imageView1);
+        imageView2 = view.findViewById(R.id.imageView2);
+        imageView3 = view.findViewById(R.id.imageView3);
+
         imageCardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -81,55 +96,52 @@ public class addFragment extends Fragment {
         Intent galleryIntent = new Intent(Intent.ACTION_GET_CONTENT);
         galleryIntent.setType("image/*");
         galleryIntent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);
-        startActivityForResult(Intent.createChooser(galleryIntent, "Select Picture"), REQUEST_CODE_PICK_IMAGE);
+        galleryLauncher.launch(Intent.createChooser(galleryIntent, "Select Picture"));
 
 
          }
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-
-        if (requestCode == REQUEST_CODE_PICK_IMAGE && resultCode == getActivity().RESULT_OK && data != null) {
-            if (data.getClipData() != null) {
-                int count = data.getClipData().getItemCount();
-                for (int i = 0; i < count; i++) {
-                    Uri imageUri = data.getClipData().getItemAt(i).getUri();
-                    if (imageUris.size() < MAX_IMAGES) {
-                        imageUris.add(imageUri);
-                        // Afficher l'image dans l'ImageView correspondant
-                        displayImageInImageView(imageUri, i);
-                    } else {
-                        // Limite d'images atteinte
-                        Toast.makeText(getActivity(), "Maximum number of images reached", Toast.LENGTH_SHORT).show();
-                        break;
-                    }
-                }
-            } else if (data.getData() != null) {
-                Uri imageUri = data.getData();
+    private void handleGalleryResult(Intent data) {
+        if (data.getClipData() != null) {
+            int count = data.getClipData().getItemCount();
+            for (int i = 0; i < count; i++) {
+                Uri imageUri = data.getClipData().getItemAt(i).getUri();
                 if (imageUris.size() < MAX_IMAGES) {
                     imageUris.add(imageUri);
-                    // Afficher l'image dans le premier ImageView
-                    displayImageInImageView(imageUri, 0);
+                    // Afficher l'image dans l'ImageView correspondant
+                    displayImageInImageView(imageUri, i);
                 } else {
                     // Limite d'images atteinte
                     Toast.makeText(getActivity(), "Maximum number of images reached", Toast.LENGTH_SHORT).show();
+                    break;
                 }
+            }
+        } else if (data.getData() != null) {
+            Uri imageUri = data.getData();
+            if (imageUris.size() < MAX_IMAGES) {
+                imageUris.add(imageUri);
+                // Afficher l'image dans le premier ImageView
+                displayImageInImageView(imageUri, 0);
+            } else {
+                // Limite d'images atteinte
+                Toast.makeText(getActivity(), "Maximum number of images reached", Toast.LENGTH_SHORT).show();
             }
         }
     }
+
     private void displayImageInImageView(Uri imageUri, int index) {
-        ImageView imageView = null;
+        ImageView imageView;
         if (index == 0) {
-            imageView = imageView.findViewById(R.id.imageView1);
+            imageView =imageView1 ;
         } else if (index == 1) {
-            imageView = imageView.findViewById(R.id.imageView2);
+            imageView = imageView2;
         } else if (index == 2) {
-            imageView = imageView.findViewById(R.id.imageView3);
+            imageView = imageView3;
+        } else {
+            return;
         }
-        if (imageView != null) {
-            imageView.setImageURI(imageUri);
-        }
+        imageView.setImageURI(imageUri);
     }
+
     private void addArticleToFirebase(String name, String description, String location, String phone) {
         // Générer une clé unique pour l'article
         String articleId = mDatabase.child("articles").push().getKey();
@@ -140,13 +152,11 @@ public class addFragment extends Fragment {
         articleValues.put("description", description);
         articleValues.put("location", location);
         articleValues.put("phone", phone);
-
         // Ajouter les images à la map
         for (int i = 0; i < imageUris.size(); i++) {
             String imageName = "image" + (i + 1);
             articleValues.put(imageName, imageUris.get(i).toString());
         }
-
         // Ajouter l'article à la base de données Firebase
         mDatabase.child("articles").child(articleId).setValue(articleValues);
     }
