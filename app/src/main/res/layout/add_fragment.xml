@@ -163,7 +163,7 @@
                         android:layout_height="wrap_content"
                         android:ems="10"
                         android:hint="Description"
-                        android:inputType="text|textImeMultiLine|textMultiLine"
+                        android:inputType="text|textImeMultiLine"
                         android:minHeight="48dp"
                         android:textAlignment="viewStart"
                         tools:ignore="DuplicateIds" />
@@ -174,7 +174,7 @@
                         android:layout_height="wrap_content"
                         android:ems="10"
                         android:hint="Phone"
-                        android:inputType="numberPassword"
+                        android:inputType="phone"
                         android:minHeight="48dp" />
 
                     <EditText
