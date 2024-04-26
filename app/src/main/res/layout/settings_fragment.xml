@@ -17,8 +17,8 @@
             android:layout_width="100dp"
             android:layout_height="114dp"
             android:layout_marginStart="28dp"
-            android:layout_marginTop="48dp"
-            android:layout_marginEnd="324dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="164dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.69"
             app:layout_constraintStart_toEndOf="@+id/linearLayout2"
@@ -28,18 +28,18 @@
 
         <TextView
             android:id="@+id/textView18"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="696dp"
+            android:layout_width="187dp"
+            android:layout_height="48dp"
             android:gravity="center"
             android:text="Mariem Gharsallah"
             android:textColor="@color/colorWhite"
             android:textSize="22sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/appCompatButton"
             app:layout_constraintEnd_toEndOf="@+id/imageView2"
             app:layout_constraintHorizontal_bias="0.494"
             app:layout_constraintStart_toStartOf="@+id/imageView2"
+            app:layout_constraintTop_toBottomOf="@+id/imageView2"
             tools:ignore="HardcodedText" />
 
         <TextView
@@ -65,9 +65,11 @@
             android:text="   Edit Profile"
             android:textAllCaps="false"
             android:textSize="13dp"
-            tools:ignore="MissingConstraints,NotSibling,TextSizeCheck,TouchTargetSizeCheck"
-            tools:layout_editor_absoluteX="170dp"
-            tools:layout_editor_absoluteY="206dp" />
+            app:layout_constraintBottom_toTopOf="@+id/textView8"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView2"
+            tools:ignore="MissingConstraints,NotSibling,TextSizeCheck,TouchTargetSizeCheck" />
 
         <TextView
             android:id="@+id/textView8"
@@ -78,10 +80,9 @@
             android:textColor="@color/colorWhite"
             android:textSize="20dp"
             android:textStyle="bold"
+            tools:ignore="MissingConstraints"
             tools:layout_editor_absoluteX="19dp"
-            tools:layout_editor_absoluteY="276dp"
-            tools:ignore="MissingConstraints" />
-
+            tools:layout_editor_absoluteY="276dp" />
 
 
         <TextView
@@ -101,20 +102,23 @@
             android:layout_width="428dp"
             android:layout_height="52dp"
             android:background="@color/secondvert"
-            android:text="Night Mode"
 
+            android:text="Night Mode"
             android:textAlignment="center"
             android:textColor="@color/colorWhite"
             android:textSize="20dp"
             android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/textView8"
+            app:layout_constraintTop_toBottomOf="@+id/appCompatButton"
+            app:layout_constraintVertical_bias="0.971"
             tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="16dp"
-            tools:layout_editor_absoluteY="270dp" />
+            tools:layout_editor_absoluteX="6dp" />
 
         <TextView
             android:id="@+id/textView13"
             android:layout_width="428dp"
             android:layout_height="52dp"
+            android:layout_marginTop="16dp"
             android:background="@color/secondvert"
             android:contentDescription="@string/app_name"
             android:text="             "
@@ -122,15 +126,16 @@
             android:textSize="20dp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="@+id/textView8"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="0.549"
             app:layout_constraintStart_toStartOf="@+id/textView8"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteY="335dp" />
+            app:layout_constraintTop_toBottomOf="@+id/textView8"
+            tools:ignore="MissingConstraints" />
 
         <TextView
             android:id="@+id/textView9"
             android:layout_width="428dp"
             android:layout_height="52dp"
+            android:layout_marginTop="16dp"
             android:background="@color/secondvert"
             android:contentDescription="@string/app_name"
             android:text="             "
@@ -138,10 +143,10 @@
             android:textSize="20dp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="@+id/textView13"
-            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/textView13"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteY="399dp" />
+            app:layout_constraintTop_toBottomOf="@+id/textView13"
+            tools:ignore="MissingConstraints" />
 
         <ImageView
             android:id="@+id/imageView13"
@@ -158,29 +163,31 @@
             android:id="@+id/textView14"
             android:layout_width="428dp"
             android:layout_height="52dp"
+            android:layout_marginTop="20dp"
             android:background="@color/secondvert"
             android:contentDescription="@string/app_name"
             android:text="             "
             android:textColor="@color/colorWhite"
             android:textSize="20dp"
             android:textStyle="bold"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="16dp"
-            tools:layout_editor_absoluteY="532dp" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView19"
+            tools:ignore="MissingConstraints" />
 
         <TextView
             android:id="@+id/textView19"
             android:layout_width="428dp"
             android:layout_height="52dp"
+            android:layout_marginTop="8dp"
             android:background="@color/secondvert"
             android:contentDescription="@string/app_name"
             android:text="             "
             android:textColor="@color/colorWhite"
             android:textSize="20dp"
             android:textStyle="bold"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="16dp"
-            tools:layout_editor_absoluteY="463dp" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView9"
+            tools:ignore="MissingConstraints" />
 
         <ImageView
             android:id="@+id/imageView16"
@@ -244,25 +251,36 @@
         <androidx.appcompat.widget.SwitchCompat
             android:layout_width="61dp"
             android:layout_height="43dp"
+            android:layout_marginStart="308dp"
+            android:layout_marginBottom="28dp"
             android:theme="@style/nightModeSwitch"
-            tools:ignore="MissingConstraints,TouchTargetSizeCheck"
-            tools:layout_editor_absoluteX="367dp"
-            tools:layout_editor_absoluteY="273dp" />
+            app:layout_constraintBottom_toTopOf="@+id/switchCompat6"
+            app:layout_constraintEnd_toEndOf="@+id/textView12"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/imageView13"
+            tools:ignore="MissingConstraints,TouchTargetSizeCheck" />
 
         <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/switchCompat6"
             android:layout_width="57dp"
             android:layout_height="33dp"
+            android:layout_marginBottom="24dp"
             android:theme="@style/nightModeSwitch"
-            tools:ignore="MissingConstraints,TouchTargetSizeCheck"
-            tools:layout_editor_absoluteX="370dp"
-            tools:layout_editor_absoluteY="347dp" />
+            app:layout_constraintBottom_toTopOf="@+id/switchCompat3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/imageView17"
+            tools:ignore="MissingConstraints,TouchTargetSizeCheck" />
 
         <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/switchCompat3"
             android:layout_width="56dp"
             android:layout_height="37dp"
             android:theme="@style/nightModeSwitch"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/imageView16"
             tools:ignore="MissingConstraints,TouchTargetSizeCheck"
-            tools:layout_editor_absoluteX="365dp"
             tools:layout_editor_absoluteY="407dp" />
 
         <androidx.appcompat.widget.SwitchCompat
@@ -270,67 +288,70 @@
             android:layout_width="58dp"
             android:layout_height="36dp"
             android:theme="@style/nightModeSwitch"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.974"
+            app:layout_constraintStart_toEndOf="@+id/imageView19"
             tools:ignore="MissingConstraints,TouchTargetSizeCheck"
-            tools:layout_editor_absoluteX="363dp"
             tools:layout_editor_absoluteY="472dp" />
 
         <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/switchCompat"
             android:layout_width="61dp"
             android:layout_height="35dp"
+            android:layout_marginBottom="176dp"
             android:theme="@style/nightModeSwitch"
-            tools:ignore="MissingConstraints,TouchTargetSizeCheck"
-            tools:layout_editor_absoluteX="360dp"
-            tools:layout_editor_absoluteY="542dp" />
-
-        <ImageView
-            android:id="@+id/imageView21"
-            android:layout_width="47dp"
-            android:layout_height="39dp"
-            android:background="@drawable/night_mode"
-            android:padding="12sp"
-
-            app:srcCompat="@drawable/a2"
-            tools:ignore="MissingConstraints"
-            />
+            app:layout_constraintBottom_toTopOf="@+id/switchCompat2"
+            app:layout_constraintEnd_toEndOf="@+id/textView14"
+            app:layout_constraintHorizontal_bias="0.968"
+            app:layout_constraintStart_toEndOf="@+id/imageView50"
+            tools:ignore="MissingConstraints,TouchTargetSizeCheck" />
 
         <TextView
             android:id="@+id/textView11"
             android:layout_width="428dp"
             android:layout_height="52dp"
+            android:layout_marginTop="12dp"
             android:background="@color/secondvert"
             android:contentDescription="@string/app_name"
             android:text="             "
             android:textColor="@color/colorWhite"
             android:textSize="20dp"
             android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/button6"
+            app:layout_constraintVertical_bias="0.0"
             tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="21dp"
-            tools:layout_editor_absoluteY="673dp" />
+            tools:layout_editor_absoluteX="-9dp" />
 
         <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/switchCompat5"
             android:layout_width="45dp"
             android:layout_height="32dp"
+            android:layout_marginTop="52dp"
             android:theme="@style/nightModeSwitch"
-            tools:ignore="MissingConstraints,TouchTargetSizeCheck"
-            tools:layout_editor_absoluteX="376dp"
-            tools:layout_editor_absoluteY="684dp" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/switchCompat"
+            tools:ignore="MissingConstraints,TouchTargetSizeCheck" />
 
         <TextView
             android:id="@+id/textView15"
             android:layout_width="428dp"
             android:layout_height="52dp"
+            android:layout_marginTop="12dp"
             android:background="@color/secondvert"
             android:contentDescription="@string/app_name"
             android:text="             "
             android:textColor="@color/colorWhite"
             android:textSize="20dp"
             android:textStyle="bold"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="28dp"
-            tools:layout_editor_absoluteY="743dp" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView11"
+            tools:ignore="MissingConstraints" />
 
         <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/switchCompat2"
             android:layout_width="45dp"
             android:layout_height="32dp"
             android:theme="@style/nightModeSwitch"
@@ -340,37 +361,44 @@
 
         <Button
             android:id="@+id/button5"
-            android:layout_width="428dp"
-            android:layout_height="52dp"
+            android:layout_width="398dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="12dp"
             android:text="Log Out"
             app:backgroundTint="#4A817B"
-            tools:layout_editor_absoluteX="16dp"
-            tools:layout_editor_absoluteY="823dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.461"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView15"
             tools:ignore="MissingConstraints" />
 
         <Button
             android:id="@+id/button6"
             android:layout_width="428dp"
             android:layout_height="52dp"
+            android:layout_marginTop="20dp"
             android:background="#4A807B"
+            android:text="About Us"
             android:textSize="22dp"
             android:textStyle="bold"
-            android:text="About Us"
             app:backgroundTint="#4A817B"
+            app:layout_constraintTop_toBottomOf="@+id/textView14"
             tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="18dp"
-            tools:layout_editor_absoluteY="603dp" />
+            tools:layout_editor_absoluteX="4dp" />
 
         <ImageView
             android:id="@+id/imageView18"
             android:layout_width="102dp"
             android:layout_height="75dp"
 
+            android:layout_marginTop="20dp"
             android:padding="12sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.051"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView50"
             app:srcCompat="@drawable/i3"
-            tools:ignore="DuplicateIds,MissingConstraints"
-            tools:layout_editor_absoluteX="6dp"
-            tools:layout_editor_absoluteY="590dp" />
+            tools:ignore="DuplicateIds,MissingConstraints" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

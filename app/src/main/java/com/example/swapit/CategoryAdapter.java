@@ -14,7 +14,7 @@ import java.util.List;
 
 public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHolder> implements Filterable {
 
-    private List<Article> dataList;
+    private final List<Article> dataList;
     private List<Article> dataListFiltered;
 
     public CategoryAdapter(List<Article> dataList) {
@@ -34,8 +34,8 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
         holder.nom.setText(article.getName());
         holder.localisation.setText(article.getLocation());
         // Charger la première image de la liste d'URLs d'images avec Glide
-        if (article.getImageUrls() != null && !article.getImageUrls().isEmpty()) {
-            String firstImageUrl = article.getImageUrls().get(0);
+        if (article.getImageUris() != null && !article.getImageUris().isEmpty()) {
+            String firstImageUrl = String.valueOf(article.getImageUris().get(0));
             Glide.with(holder.itemView.getContext())
                     .load(firstImageUrl)
                     .placeholder(R.drawable.placeholder_image)
@@ -79,7 +79,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
         };
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    public static class ViewHolder extends RecyclerView.ViewHolder {
         TextView nom, localisation;
         ImageView imageView;
 

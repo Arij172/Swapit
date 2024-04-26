@@ -1,5 +1,5 @@
 package com.example.swapit;
-
+import android.net.Uri;
 import android.os.Parcel;
 import android.os.Parcelable;
 
@@ -10,7 +10,7 @@ public class Article implements Parcelable {
     private String description;
     private String location;
     private String phone;
-    private List<String> imageUrls;
+    private List<Uri>imageUris ;
 
     public Article() {
         // Required empty constructor for Firebase deserialization
@@ -21,7 +21,7 @@ public class Article implements Parcelable {
         this.description = description;
         this.location = location;
         this.phone = phone;
-        this.imageUrls = imageUrls;
+        this.imageUris = imageUris ;
     }
 
     protected Article(Parcel in) {
@@ -29,7 +29,7 @@ public class Article implements Parcelable {
         description = in.readString();
         location = in.readString();
         phone = in.readString();
-        imageUrls = in.createStringArrayList();
+        imageUris = in.createTypedArrayList(Uri.CREATOR);
     }
 
     public static final Creator<Article> CREATOR = new Creator<Article>() {
@@ -60,10 +60,9 @@ public class Article implements Parcelable {
         return phone;
     }
 
-    public List<String> getImageUrls() {
-        return imageUrls;
+    public List<Uri> getImageUris() {
+        return imageUris;
     }
-
     @Override
     public int describeContents() {
         return 0;
@@ -75,6 +74,6 @@ public class Article implements Parcelable {
         dest.writeString(description);
         dest.writeString(location);
         dest.writeString(phone);
-        dest.writeStringList(imageUrls);
+        dest.writeTypedList(imageUris);
     }
 }

@@ -2,13 +2,13 @@
 <project version="4">
   <component name="deploymentTargetDropDown">
     <value>
-      <entry key="app">
+      <entry key="HomeActivity">
         <State />
       </entry>
       <entry key="MainActivity3">
         <State />
       </entry>
-      <entry key="product1">
+      <entry key="app">
         <State>
           <targetSelectedWithDropDown>
             <Target>
