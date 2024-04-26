@@ -14,15 +14,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Swapit"
         tools:targetApi="31">
-        <activity
-            android:name=".fragment_fav_try1"
-            android:exported="false" />
-        <activity
-            android:name=".product1"
-            android:exported="false" />
-        <activity
-            android:name=".MainActivity2"
-            android:exported="false" />
+
         <activity
             android:name=".HomeActivity"
             android:exported="false" />
@@ -42,13 +34,22 @@
             android:name=".SettingFragment"
             android:exported="false" />
         <activity
+            android:name=".CategoryActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
+
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
         </activity>
     </application>
 

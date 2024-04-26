@@ -9,14 +9,16 @@
         android:title="Wishlist"
         android:icon="@drawable/favorite"/>
     <item
-        android:id="@+id/fab"
-        android:title=""
-        android:enabled="false"/>
+        android:id="@+id/add"
+        android:title="Add"
+        android:icon="@drawable/add"
+        />
     <item
         android:id="@+id/notifications"
         android:title="Notification"
         android:icon="@drawable/notifications"
         />
+
     <item
         android:id="@+id/settings"
         android:title="Settings"

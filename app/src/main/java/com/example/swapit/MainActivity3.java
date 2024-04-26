@@ -31,6 +31,9 @@ public class MainActivity3 extends AppCompatActivity {
                 replaceFragment(new notificationFragment());
             } else if (item.getItemId() == R.id.settings) {
                 replaceFragment(new SettingFragment());
+            } else if (item.getItemId() == R.id.add) {
+                replaceFragment(new addFragment());
+
             }
             return true;
         });
