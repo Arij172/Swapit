@@ -6,6 +6,389 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".SettingFragment"
-    >
+    android:background="@color/teel_200">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="891dp">
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="100dp"
+            android:layout_height="114dp"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="48dp"
+            android:layout_marginEnd="324dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.69"
+            app:layout_constraintStart_toEndOf="@+id/linearLayout2"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/s1"
+            tools:ignore="UnknownId" />
+
+        <TextView
+            android:id="@+id/textView18"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="696dp"
+            android:gravity="center"
+            android:text="Mariem Gharsallah"
+            android:textColor="@color/colorWhite"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/imageView2"
+            app:layout_constraintHorizontal_bias="0.494"
+            app:layout_constraintStart_toStartOf="@+id/imageView2"
+            tools:ignore="HardcodedText" />
+
+        <TextView
+            android:id="@+id/textView20"
+            android:layout_width="119dp"
+            android:layout_height="31dp"
+            android:layout_marginBottom="900dp"
+            android:gravity="center"
+            android:text="+216 97 102 274"
+            android:textColor="#FFFFFF"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toTopOf="@+id/textView11"
+            tools:ignore="MissingConstraints,TextSizeCheck"
+            tools:layout_editor_absoluteX="173dp" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/appCompatButton"
+            android:layout_width="124dp"
+            android:layout_height="41dp"
+            android:background="@drawable/shape"
+            android:gravity="center"
+            android:paddingEnd="20dp"
+            android:text="   Edit Profile"
+            android:textAllCaps="false"
+            android:textSize="13dp"
+            tools:ignore="MissingConstraints,NotSibling,TextSizeCheck,TouchTargetSizeCheck"
+            tools:layout_editor_absoluteX="170dp"
+            tools:layout_editor_absoluteY="206dp" />
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="377dp"
+            android:layout_height="46dp"
+            android:background="@color/secondvert"
+            android:text="             Night Mode"
+            android:textColor="@color/colorWhite"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            tools:layout_editor_absoluteX="19dp"
+            tools:layout_editor_absoluteY="276dp"
+            tools:ignore="MissingConstraints" />
+
+
+
+        <TextView
+            android:id="@+id/textView16"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:text="Night Mode"
+            android:textColor="#FFFFFF"
+            android:textSize="23dp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="parent"
+            tools:layout_editor_absoluteY="265dp" />
+
+        <TextView
+            android:id="@+id/textView12"
+            android:layout_width="428dp"
+            android:layout_height="52dp"
+            android:background="@color/secondvert"
+            android:text="Night Mode"
+
+            android:textAlignment="center"
+            android:textColor="@color/colorWhite"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="270dp" />
+
+        <TextView
+            android:id="@+id/textView13"
+            android:layout_width="428dp"
+            android:layout_height="52dp"
+            android:background="@color/secondvert"
+            android:contentDescription="@string/app_name"
+            android:text="             "
+            android:textColor="@color/colorWhite"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/textView8"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/textView8"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteY="335dp" />
+
+        <TextView
+            android:id="@+id/textView9"
+            android:layout_width="428dp"
+            android:layout_height="52dp"
+            android:background="@color/secondvert"
+            android:contentDescription="@string/app_name"
+            android:text="             "
+            android:textColor="@color/colorWhite"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/textView13"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="@+id/textView13"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteY="399dp" />
+
+        <ImageView
+            android:id="@+id/imageView13"
+            android:layout_width="47dp"
+            android:layout_height="39dp"
+            android:background="@drawable/notif_notifications"
+            android:padding="12sp"
+            app:srcCompat="@drawable/a2"
+            tools:ignore="DuplicateIds,MissingConstraints"
+            tools:layout_editor_absoluteX="28dp"
+            tools:layout_editor_absoluteY="283dp" />
+
+        <TextView
+            android:id="@+id/textView14"
+            android:layout_width="428dp"
+            android:layout_height="52dp"
+            android:background="@color/secondvert"
+            android:contentDescription="@string/app_name"
+            android:text="             "
+            android:textColor="@color/colorWhite"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="532dp" />
+
+        <TextView
+            android:id="@+id/textView19"
+            android:layout_width="428dp"
+            android:layout_height="52dp"
+            android:background="@color/secondvert"
+            android:contentDescription="@string/app_name"
+            android:text="             "
+            android:textColor="@color/colorWhite"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="463dp" />
+
+        <ImageView
+            android:id="@+id/imageView16"
+            android:layout_width="47dp"
+            android:layout_height="39dp"
+            android:background="@drawable/private_account"
+            android:padding="12sp"
+            app:srcCompat="@drawable/a2"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="28dp"
+            tools:layout_editor_absoluteY="405dp" />
+
+        <ImageView
+            android:id="@+id/imageView17"
+            android:layout_width="47dp"
+            android:layout_height="39dp"
+            android:background="@drawable/night_mode"
+            android:padding="12sp"
+
+            app:srcCompat="@drawable/a2"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="28dp"
+            tools:layout_editor_absoluteY="341dp" />
+
+        <ImageView
+            android:id="@+id/imageView50"
+            android:layout_width="47dp"
+            android:layout_height="39dp"
+            android:background="@drawable/night_mode"
+            android:padding="12sp"
+
+            app:srcCompat="@drawable/a2"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="32dp"
+            tools:layout_editor_absoluteY="538dp" />
+
+        <ImageView
+            android:id="@+id/imageView19"
+            android:layout_width="47dp"
+            android:layout_height="39dp"
+            android:background="@drawable/iconequatre"
+            android:padding="12sp"
+
+            app:srcCompat="@drawable/a2"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="28dp"
+            tools:layout_editor_absoluteY="469dp" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:text="Night Mode"
+            android:textColor="#FFFFFF"
+            android:textSize="23dp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="parent"
+            tools:layout_editor_absoluteY="0dp" />
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:layout_width="61dp"
+            android:layout_height="43dp"
+            android:theme="@style/nightModeSwitch"
+            tools:ignore="MissingConstraints,TouchTargetSizeCheck"
+            tools:layout_editor_absoluteX="367dp"
+            tools:layout_editor_absoluteY="273dp" />
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:layout_width="57dp"
+            android:layout_height="33dp"
+            android:theme="@style/nightModeSwitch"
+            tools:ignore="MissingConstraints,TouchTargetSizeCheck"
+            tools:layout_editor_absoluteX="370dp"
+            tools:layout_editor_absoluteY="347dp" />
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:layout_width="56dp"
+            android:layout_height="37dp"
+            android:theme="@style/nightModeSwitch"
+            tools:ignore="MissingConstraints,TouchTargetSizeCheck"
+            tools:layout_editor_absoluteX="365dp"
+            tools:layout_editor_absoluteY="407dp" />
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/switchCompat4"
+            android:layout_width="58dp"
+            android:layout_height="36dp"
+            android:theme="@style/nightModeSwitch"
+            tools:ignore="MissingConstraints,TouchTargetSizeCheck"
+            tools:layout_editor_absoluteX="363dp"
+            tools:layout_editor_absoluteY="472dp" />
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:layout_width="61dp"
+            android:layout_height="35dp"
+            android:theme="@style/nightModeSwitch"
+            tools:ignore="MissingConstraints,TouchTargetSizeCheck"
+            tools:layout_editor_absoluteX="360dp"
+            tools:layout_editor_absoluteY="542dp" />
+
+        <ImageView
+            android:id="@+id/imageView21"
+            android:layout_width="47dp"
+            android:layout_height="39dp"
+            android:background="@drawable/night_mode"
+            android:padding="12sp"
+
+            app:srcCompat="@drawable/a2"
+            tools:ignore="MissingConstraints"
+            />
+
+        <TextView
+            android:id="@+id/textView11"
+            android:layout_width="428dp"
+            android:layout_height="52dp"
+            android:background="@color/secondvert"
+            android:contentDescription="@string/app_name"
+            android:text="             "
+            android:textColor="@color/colorWhite"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="21dp"
+            tools:layout_editor_absoluteY="673dp" />
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/switchCompat5"
+            android:layout_width="45dp"
+            android:layout_height="32dp"
+            android:theme="@style/nightModeSwitch"
+            tools:ignore="MissingConstraints,TouchTargetSizeCheck"
+            tools:layout_editor_absoluteX="376dp"
+            tools:layout_editor_absoluteY="684dp" />
+
+        <TextView
+            android:id="@+id/textView15"
+            android:layout_width="428dp"
+            android:layout_height="52dp"
+            android:background="@color/secondvert"
+            android:contentDescription="@string/app_name"
+            android:text="             "
+            android:textColor="@color/colorWhite"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="28dp"
+            tools:layout_editor_absoluteY="743dp" />
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:layout_width="45dp"
+            android:layout_height="32dp"
+            android:theme="@style/nightModeSwitch"
+            tools:ignore="MissingConstraints,TouchTargetSizeCheck"
+            tools:layout_editor_absoluteX="376dp"
+            tools:layout_editor_absoluteY="756dp" />
+
+        <Button
+            android:id="@+id/button5"
+            android:layout_width="428dp"
+            android:layout_height="52dp"
+            android:text="Log Out"
+            app:backgroundTint="#4A817B"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="823dp"
+            tools:ignore="MissingConstraints" />
+
+        <Button
+            android:id="@+id/button6"
+            android:layout_width="428dp"
+            android:layout_height="52dp"
+            android:background="#4A807B"
+            android:textSize="22dp"
+            android:textStyle="bold"
+            android:text="About Us"
+            app:backgroundTint="#4A817B"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="18dp"
+            tools:layout_editor_absoluteY="603dp" />
+
+        <ImageView
+            android:id="@+id/imageView18"
+            android:layout_width="102dp"
+            android:layout_height="75dp"
+
+            android:padding="12sp"
+            app:srcCompat="@drawable/i3"
+            tools:ignore="DuplicateIds,MissingConstraints"
+            tools:layout_editor_absoluteX="6dp"
+            tools:layout_editor_absoluteY="590dp" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="Settings"
+            android:textColor="@color/colorWhite"
+            android:textSize="18dp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
 
 </FrameLayout>

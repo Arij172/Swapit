@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FAE6CA">
+
+    <ScrollView
+        android:id="@+id/scrollView3"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:contentDescription="@string/app_name"
+        tools:layout_editor_absoluteY="375dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:ignore="MissingConstraints,ScrollViewSize">
+
+            <ImageView
+                android:id="@+id/imageView8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/f5" />
+
+            <HorizontalScrollView
+                android:id="@+id/horizontalScrollView"
+                android:layout_width="521dp"
+                android:layout_height="340dp"
+                android:contentDescription="f"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteY="27dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/imageView1"
+                        android:layout_width="413dp"
+                        android:layout_height="350dp"
+                        app:srcCompat="@drawable/img" />
+
+                    <ImageView
+                        android:id="@+id/imageView4"
+                        android:layout_width="411dp"
+                        android:layout_height="350dp"
+                        app:srcCompat="@drawable/p3" />
+
+                    <ImageView
+                        android:id="@+id/imageView5"
+                        android:layout_width="409dp"
+                        android:layout_height="350dp"
+                        android:layout_weight="1"
+                        android:contentDescription="f"
+                        app:srcCompat="@drawable/p2" />
+
+                    <ImageView
+                        android:id="@+id/imageView6"
+                        android:layout_width="416dp"
+                        android:layout_height="350dp"
+                        android:layout_weight="1"
+                        android:contentDescription="f"
+                        app:srcCompat="@drawable/p4" />
+
+                    <ImageView
+                        android:id="@+id/imageView7"
+                        android:layout_width="350dp"
+                        android:layout_height="350dp"
+                        android:layout_weight="1"
+                        android:contentDescription="f"
+                        app:srcCompat="@drawable/p5" />
+
+                </LinearLayout>
+            </HorizontalScrollView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/myCardView"
+                android:layout_width="390dp"
+                android:layout_height="388dp"
+                android:background="@color/teel_200"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="4dp"
+                app:cardUseCompatPadding="true"
+                tools:layout_editor_absoluteX="9dp"
+                tools:layout_editor_absoluteY="403dp">
+                <LinearLayout
+                    android:layout_width="399dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="50dp"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:id="@+id/textView4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="BMW 8i"
+                        android:textSize="25dp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/textView5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Description:"
+                        android:textStyle="italic" />
+
+                    <TextView
+                        android:id="@+id/textView6"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Etat du véhicule: Bon état\nAnnée: 2020\nKilométrage: 80000\nCouleur du véhicule: Noir\nBoite: Automatique\nCylindrée: 1.5L\nPuissance fiscale: 8 (chevaux)\nCarburant: Essence\nType de carrosserie: Compacte\nModèle: série1\nMarque: BMW" />
+
+                    <TextView
+                        android:id="@+id/textView7"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Disponibilité:"
+                        android:textStyle="italic" />
+
+                </LinearLayout>
+
+
+
+            </androidx.cardview.widget.CardView>
+
+            <Button
+                android:id="@+id/button2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Button"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.742"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/myCardView"
+                app:layout_constraintVertical_bias="1.0" />
+
+            <Button
+                android:id="@+id/button3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/teel_200"
+                android:text="SWAP"
+                android:textColor="#3E2723"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/button2"
+                app:layout_constraintHorizontal_bias="0.358"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/myCardView"
+                app:layout_constraintVertical_bias="0.976" />
+
+            <Button
+                android:id="@+id/button4"
+                android:layout_width="53dp"
+                android:layout_height="40dp"
+                android:background="@drawable/rounded_arrow"
+                android:contentDescription="@string/app_name"
+                app:backgroundTint="@color/beige"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteX="8dp" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
