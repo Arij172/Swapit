@@ -119,8 +119,8 @@
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_width="393dp"
+                android:layout_height="268dp"
                 android:layout_marginEnd="8dp"
                 android:background="@color/teel_200"
                 app:cardBackgroundColor="#F8DAB1"
@@ -136,6 +136,12 @@
                     android:layout_width="411dp"
                     android:layout_height="230dp"
                     android:orientation="vertical">
+
+                    <Spinner
+                        android:id="@+id/categorySpinner"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:minHeight="48dp" />
 
                     <EditText
                         android:id="@+id/nameEditText"
@@ -170,7 +176,7 @@
                     <EditText
                         android:id="@+id/locationEditText"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="36dp"
                         android:ems="10"
                         android:hint="Location"
                         android:inputType="textPostalAddress"

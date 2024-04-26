@@ -7,16 +7,19 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.cardview.widget.CardView;
+
 import androidx.fragment.app.Fragment;
 
 import com.google.firebase.database.DatabaseReference;
@@ -29,7 +32,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
 import android.util.Log;
-import java.util.concurrent.atomic.AtomicInteger;
+
 
 public class addFragment extends Fragment {
 
@@ -65,6 +68,12 @@ public class addFragment extends Fragment {
         imageView2 = view.findViewById(R.id.imageView2);
         imageView3 = view.findViewById(R.id.imageView3);
 
+        // Initialisation du Spinner pour les catégories
+        Spinner categorySpinner = view.findViewById(R.id.categorySpinner);
+        ArrayAdapter<String> categoryAdapter = new ArrayAdapter<>(requireContext(), android.R.layout.simple_spinner_item, new String[]{"Cars", "Books", "Electronics"});
+        categoryAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        categorySpinner.setAdapter(categoryAdapter);
+
         imageCardView.setOnClickListener(v -> openGallery());
 
         addButton.setOnClickListener(v -> {
@@ -72,9 +81,10 @@ public class addFragment extends Fragment {
             String description = descriptionEditText.getText().toString().trim();
             String location = locationEditText.getText().toString().trim();
             String phone = phoneEditText.getText().toString().trim();
-
+            // Récupérer la catégorie sélectionnée
+            String category = categorySpinner.getSelectedItem().toString();
             if (!name.isEmpty() && !description.isEmpty() && !location.isEmpty() && !phone.isEmpty()) {
-                addArticleToFirebase(name, description, location, phone);
+                addArticleToFirebase(name, description, location, phone,category);
 
                 nameEditText.setText("");
                 descriptionEditText.setText("");
@@ -141,10 +151,9 @@ public class addFragment extends Fragment {
         imageView.setImageURI(imageUri);
     }
 
-    private void addArticleToFirebase(String name, String description, String location, String phone) {
+    private void addArticleToFirebase(String name, String description, String location, String phone,String category) {
         // Générer une clé unique pour l'article
-        String articleId = mDatabase.child("articles").push().getKey();
-
+        String articleId = mDatabase.child("articles").child(category).push().getKey();
         // Créer une map contenant les données de l'article
         Map<String, Object> articleValues = new HashMap<>();
         articleValues.put("name", name);
@@ -180,7 +189,7 @@ public class addFragment extends Fragment {
                             // Vérifier si toutes les images ont été téléchargées
                             if (count == imageUris.size()) {
                                 // Toutes les images ont été téléchargées, ajouter l'article à la base de données Firebase
-                                mDatabase.child("articles").child(articleId).setValue(articleValues)
+                                mDatabase.child("articles").child(category).child(articleId).setValue(articleValues)
                                         .addOnSuccessListener(aVoid -> {
                                             // Données stockées avec succès dans la base de données en temps réel
                                             Toast.makeText(getActivity(), "Article added successfully", Toast.LENGTH_SHORT).show();
@@ -198,7 +207,7 @@ public class addFragment extends Fragment {
                     });
         }
 
-        mDatabase.child("articles").child(articleId).setValue(articleValues);
+        mDatabase.child(category).child(articleId).setValue(articleValues);
         Toast.makeText(getActivity(), "Article added successfully", Toast.LENGTH_SHORT).show();
     }
 }
