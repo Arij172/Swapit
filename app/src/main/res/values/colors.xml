@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <color name="button_normal">#ffffff</color>
+    <color name="button_clicked">#0EA79B</color>
     <color name="black">#FF000000</color>
     <color name="teel_200">#0EA79B</color>
     <color name="secondvert">#4A827B</color>

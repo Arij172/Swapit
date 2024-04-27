@@ -48,7 +48,7 @@
                         android:id="@+id/imageView4"
                         android:layout_width="411dp"
                         android:layout_height="350dp"
-                        app:srcCompat="@drawable/p3" />
+                        />
 
                     <ImageView
                         android:id="@+id/imageView5"
@@ -56,7 +56,7 @@
                         android:layout_height="350dp"
                         android:layout_weight="1"
                         android:contentDescription="f"
-                        app:srcCompat="@drawable/p2" />
+                        />
 
                     <ImageView
                         android:id="@+id/imageView6"
@@ -64,15 +64,8 @@
                         android:layout_height="350dp"
                         android:layout_weight="1"
                         android:contentDescription="f"
-                        app:srcCompat="@drawable/p4" />
+                        />
 
-                    <ImageView
-                        android:id="@+id/imageView7"
-                        android:layout_width="350dp"
-                        android:layout_height="350dp"
-                        android:layout_weight="1"
-                        android:contentDescription="f"
-                        app:srcCompat="@drawable/p5" />
 
                 </LinearLayout>
             </HorizontalScrollView>
@@ -113,14 +106,35 @@
                         android:id="@+id/textView6"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Etat du véhicule: Bon état\nAnnée: 2020\nKilométrage: 80000\nCouleur du véhicule: Noir\nBoite: Automatique\nCylindrée: 1.5L\nPuissance fiscale: 8 (chevaux)\nCarburant: Essence\nType de carrosserie: Compacte\nModèle: série1\nMarque: BMW" />
+                        android:contentDescription="@string/app_name"
+                        android:text=" " />
 
                     <TextView
                         android:id="@+id/textView7"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Disponibilité:"
+                        android:text="Phone Number:"
                         android:textStyle="italic" />
+
+                    <TextView
+                        android:id="@+id/textView8"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:contentDescription="@string/app_name"
+                        android:text=" " />
+                    <TextView
+                        android:id="@+id/textView9"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Localisation:"
+                        android:textStyle="italic" />
+
+                    <TextView
+                        android:id="@+id/textView10"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:contentDescription="@string/app_name"
+                        android:text=" " />
 
                 </LinearLayout>
 
@@ -130,29 +144,34 @@
 
             <Button
                 android:id="@+id/button2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Button"
+                android:layout_width="60dp"
+                android:layout_height="57dp"
+                android:background="@drawable/baseline_favorite_border_24"
+                android:contentDescription="@string/app_name"
+                app:backgroundTint="#16A599"
+                app:icon="@drawable/baseline_favorite_border_24"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.742"
+                app:layout_constraintHorizontal_bias="0.965"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/myCardView"
-                app:layout_constraintVertical_bias="1.0" />
+                app:layout_constraintVertical_bias="0.975" />
 
             <Button
                 android:id="@+id/button3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@color/teel_200"
+                android:layout_width="294dp"
+                android:layout_height="58dp"
                 android:text="SWAP"
                 android:textColor="#3E2723"
+                android:textSize="25dp"
+                app:backgroundTint="#16A69A"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/button2"
-                app:layout_constraintHorizontal_bias="0.358"
+                app:layout_constraintHorizontal_bias="0.355"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/myCardView"
-                app:layout_constraintVertical_bias="0.976" />
+                app:layout_constraintVertical_bias="0.975"
+                tools:textColor="#F9E5CA" />
 
             <Button
                 android:id="@+id/button4"
