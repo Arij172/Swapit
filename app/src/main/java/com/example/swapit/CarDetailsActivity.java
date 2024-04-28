@@ -10,7 +10,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.bumptech.glide.Glide;
 
 import java.util.List;
-public class CarDetailsActivity  extends  AppCompatActivity {
+
+public class CarDetailsActivity extends AppCompatActivity {
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,6 +27,7 @@ public class CarDetailsActivity  extends  AppCompatActivity {
         TextView textView6 = findViewById(R.id.textView6);
         TextView textView8 = findViewById(R.id.textView8);
         TextView textView10 = findViewById(R.id.textView10);
+
         // Récupérer les données de l'article à partir de l'intent
         Intent intent = getIntent();
         if (intent != null) {
@@ -52,5 +55,4 @@ public class CarDetailsActivity  extends  AppCompatActivity {
             }
         }
     }
-
 }

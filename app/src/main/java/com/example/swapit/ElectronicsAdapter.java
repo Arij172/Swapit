@@ -1,6 +1,6 @@
 package com.example.swapit;
-
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +14,7 @@ import java.util.List;
 public class ElectronicsAdapter extends RecyclerView.Adapter<ElectronicsAdapter.ViewHolder> {
     private Context context;
     private List<DataClass> electronicsList;
+    private OnItemClickListener listener;
 
     public ElectronicsAdapter(List<DataClass> electronicsList) {
         this.electronicsList = electronicsList;
@@ -29,16 +30,29 @@ public class ElectronicsAdapter extends RecyclerView.Adapter<ElectronicsAdapter.
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        DataClass electronics = electronicsList.get(position);
-        holder.textViewElectronicsName.setText(electronics.getName());
+        DataClass electronicItem = electronicsList.get(position);
+        holder.textViewItemName.setText(electronicItem.getName());
 
         // Charger l'image à partir de l'URL
-        String imageUrl = electronics.getImageUrl1();
+        String imageUrl = electronicItem.getImageUrl1();
         Glide.with(context)
                 .load(imageUrl)
                 .placeholder(R.drawable.placeholder_image) // Image de remplacement pendant le chargement
                 .error(R.drawable.placeholder_image) // Image de remplacement en cas d'erreur de chargement
-                .into(holder.imageViewElectronics);
+                .into(holder.imageViewItem);
+
+        // Ajouter un écouteur de clic sur le nom de l'article
+        holder.textViewItemName.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (listener != null) {
+                    int position = holder.getAdapterPosition();
+                    if (position != RecyclerView.NO_POSITION) {
+                        listener.onItemClick(position);
+                    }
+                }
+            }
+        });
     }
 
     @Override
@@ -46,14 +60,22 @@ public class ElectronicsAdapter extends RecyclerView.Adapter<ElectronicsAdapter.
         return electronicsList.size();
     }
 
+    public void setOnItemClickListener(OnItemClickListener listener) {
+        this.listener = listener;
+    }
+
+    public interface OnItemClickListener {
+        void onItemClick(int position);
+    }
+
     public class ViewHolder extends RecyclerView.ViewHolder {
-        ImageView imageViewElectronics;
-        TextView textViewElectronicsName;
+        ImageView imageViewItem;
+        TextView textViewItemName;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            imageViewElectronics = itemView.findViewById(R.id.recyclerImage);
-            textViewElectronicsName = itemView.findViewById(R.id.recyclerCaption);
+            imageViewItem = itemView.findViewById(R.id.recyclerImage);
+            textViewItemName = itemView.findViewById(R.id.recyclerCaption);
         }
     }
 }

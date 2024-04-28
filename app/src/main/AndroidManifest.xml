@@ -55,6 +55,12 @@
             android:name=".BookDetailsActivity"
             android:exported="false" />
         <activity
+            android:name=".CarDetailsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ElectronicItemDetailsActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

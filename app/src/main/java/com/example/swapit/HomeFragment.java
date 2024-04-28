@@ -41,7 +41,7 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 // Créer une intention pour démarrer CategoryActivity
-                Intent intent = new Intent(getActivity(), CarsActivity.class);
+                Intent intent = new Intent(getActivity(), ElectronicsActivity.class);
 
                 // Démarrer CategoryActivity
                 startActivity(intent);
@@ -51,7 +51,7 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 // Créer une intention pour démarrer CategoryActivity
-                Intent intent = new Intent(getActivity(), ElectronicsActivity.class);
+                Intent intent = new Intent(getActivity(), CarsActivity.class);
 
                 // Démarrer CategoryActivity
                 startActivity(intent);

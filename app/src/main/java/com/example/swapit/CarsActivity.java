@@ -64,4 +64,5 @@ public class CarsActivity extends AppCompatActivity implements CarsAdapter.OnIte
         intent.putExtra("imageUrls", clickedCar.getImageUrls().toArray(new String[0])); // Convertir la liste en un tableau
         // Démarrer l'activité
         startActivity(intent);
-    }}
+    }
+}
