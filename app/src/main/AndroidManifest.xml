@@ -16,6 +16,15 @@
         android:theme="@style/Theme.Swapit"
         tools:targetApi="31">
         <activity
+            android:name=".confidentialit"
+            android:exported="false" />
+        <activity
+            android:name=".product"
+            android:exported="false" />
+        <activity
+            android:name=".MyAccount"
+            android:exported="false" />
+        <activity
             android:name=".SendAsAMessage"
             android:exported="false" />
         <activity

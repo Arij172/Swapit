@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".product"
+    android:background="@drawable/b4">
+
+    <ScrollView
+        android:layout_width="411dp"
+        android:layout_height="1065dp"
+        android:contentDescription="@string/app_name"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="-16dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/imageView1"
+                android:layout_width="365dp"
+                android:layout_height="252dp"
+                app:srcCompat="@drawable/img"
+                tools:layout_editor_absoluteX="30dp"
+                tools:layout_editor_absoluteY="114dp" />
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="365dp"
+                android:layout_height="252dp"
+                app:srcCompat="@drawable/p3"
+                tools:layout_editor_absoluteX="27dp"
+                tools:layout_editor_absoluteY="366dp" />
+
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="365dp"
+                android:layout_height="252dp"
+                app:srcCompat="@drawable/p2"
+                tools:layout_editor_absoluteX="27dp"
+                tools:layout_editor_absoluteY="618dp" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/myCardView"
+                android:layout_width="375dp"
+                android:layout_height="348dp"
+                android:background="@color/teel_200"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="4dp"
+                app:cardUseCompatPadding="true"
+                tools:layout_editor_absoluteX="30dp"
+                tools:layout_editor_absoluteY="834dp">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="376dp"
+                    android:layout_height="338dp"
+                    android:layout_marginEnd="50dp"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:id="@+id/textView1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Name"
+                        android:textSize="25dp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/textView2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Description:"
+                        android:textStyle="italic"
+                        tools:layout_editor_absoluteX="0dp"
+                        tools:layout_editor_absoluteY="50dp" />
+
+                    <TextView
+                        android:id="@+id/textView3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:contentDescription="@string/app_name"
+                        android:text=" "
+                        tools:layout_editor_absoluteX="-7dp"
+                        tools:layout_editor_absoluteY="169dp" />
+
+                    <TextView
+                        android:id="@+id/textView4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Phone Number:"
+                        android:textStyle="italic"
+                        tools:layout_editor_absoluteX="0dp"
+                        tools:layout_editor_absoluteY="97dp" />
+
+                    <TextView
+                        android:id="@+id/textView8"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:contentDescription="@string/app_name"
+                        android:text=" "
+                        tools:layout_editor_absoluteX="16dp"
+                        tools:layout_editor_absoluteY="121dp" />
+
+                    <TextView
+                        android:id="@+id/textView9"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Localisation:"
+                        android:textStyle="italic"
+                        tools:layout_editor_absoluteX="-1dp"
+                        tools:layout_editor_absoluteY="145dp" />
+
+                    <TextView
+                        android:id="@+id/textView10"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:contentDescription="@string/app_name"
+                        android:text=" "
+                        tools:layout_editor_absoluteX="3dp"
+                        tools:layout_editor_absoluteY="73dp" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            </androidx.cardview.widget.CardView>
+
+            <Button
+                android:id="@+id/button3"
+                android:layout_width="53dp"
+                android:layout_height="48dp"
+                android:background="@drawable/rounded_arrow"
+                android:contentDescription="@string/app_name"
+                app:backgroundTint="@color/beige"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteX="28dp"
+                tools:layout_editor_absoluteY="46dp" />
+
+            <Button
+                android:id="@+id/button2"
+                android:layout_width="294dp"
+                android:layout_height="58dp"
+                android:text="SWAP"
+                android:textColor="#3E2723"
+                android:textSize="25dp"
+                app:backgroundTint="#16A69A"
+                tools:layout_editor_absoluteX="38dp"
+                tools:layout_editor_absoluteY="793dp"
+                tools:textColor="#F9E5CA" />
+
+            <Button
+                android:id="@+id/button1"
+                android:layout_width="60dp"
+                android:layout_height="57dp"
+                android:background="@drawable/baseline_favorite_border_24"
+                android:contentDescription="@string/app_name"
+                app:backgroundTint="#16A599"
+                tools:layout_editor_absoluteX="332dp"
+                tools:layout_editor_absoluteY="790dp" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -9,28 +9,32 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="431dp"
-        android:layout_height="215dp"
-        android:src="@drawable/b"
+        android:layout_width="483dp"
+        android:layout_height="178dp"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.399"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/p1"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="126dp"
-        tools:layout_editor_absoluteY="-14dp" />
+        tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="276dp"
-        android:layout_height="132dp"
+        android:layout_width="275dp"
+        android:layout_height="103dp"
         android:text="WELCOME TO SWAPIT"
         android:textColor="@color/teel_200"
         android:textSize="40sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.472"
+        app:layout_constraintHorizontal_bias="0.449"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.627" />
+        app:layout_constraintVertical_bias="0.616" />
 
     <TextView
         android:id="@+id/textView2"
@@ -41,13 +45,13 @@
         android:textAllCaps="false"
         android:textColor="#5C5C5C"
         android:textSize="20sp"
-        android:textStyle="normal|italic"
+        android:textStyle="italic"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.552"
+        app:layout_constraintHorizontal_bias="0.526"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.216" />
 
     <Button
         android:id="@+id/button"
@@ -59,14 +63,15 @@
         android:shadowColor="#0EA79B"
         android:text="Get started"
         android:textColor="@color/colorWhite"
-
         android:textColorLink="#291D1D"
         android:textSize="20sp"
         android:textStyle="bold"
         app:backgroundTint="#0EA79B"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:strokeColor="#707070"
-        tools:layout_editor_absoluteX="556dp"
-        tools:layout_editor_absoluteY="345dp" />
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        app:strokeColor="#707070" />
 </androidx.constraintlayout.widget.ConstraintLayout>

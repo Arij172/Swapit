@@ -1,7 +1,10 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+
     <string name="app_name">Swapit</string>
     <string name="dont_have_an_account">Dont have an Account?</string>
     <string name="login">Login</string>
     <string name="signup">SignUp</string>
     <string name="night_mode">Night Mode</string>
+    <string name="log_out">Log Out</string>
 </resources>

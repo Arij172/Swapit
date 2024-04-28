@@ -10,6 +10,8 @@
         <item name="colorControlActivated">@color/night_mode</item>
         <item name="colorSwitchThumbNormal">#FFFFFF</item>
         <item name="android:colorForeground">#99FFFFFF</item>
+
     </style>
+
 
 </resources>
