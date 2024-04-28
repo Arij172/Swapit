@@ -25,6 +25,15 @@
             android:name=".MyAccount"
             android:exported="false" />
         <activity
+            android:name=".CarsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ElectronicsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".BooksActivity"
+            android:exported="false" />
+        <activity
             android:name=".SendAsAMessage"
             android:exported="false" />
         <activity
@@ -50,6 +59,12 @@
             android:exported="false" />
         <activity
             android:name=".CategoryActivity"
+            android:exported="false" />
+        <activity
+            android:name=".BookDetailsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".CarDetailsActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

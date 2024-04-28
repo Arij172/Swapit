@@ -1,10 +1,13 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
-
-
+<resources>
     <string name="app_name">Swapit</string>
     <string name="dont_have_an_account">Dont have an Account?</string>
     <string name="login">Login</string>
     <string name="signup">SignUp</string>
     <string name="night_mode">Night Mode</string>
-    <string name="log_out">Log Out</string>
+    <string-array name="categories">
+        <item>Books</item>
+        <item>Cars</item>
+        <item>Electronics</item>
+    </string-array>
+    <string name="log_out">log_out</string>
 </resources>

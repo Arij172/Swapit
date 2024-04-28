@@ -20,19 +20,43 @@ public class HomeFragment extends Fragment {
 
         // Récupérer la référence de l'image imageView9
         ImageView imageView9 = rootView.findViewById(R.id.imageView9);
+        ImageView imageView10 = rootView.findViewById(R.id.imageView10);
+        ImageView imageView11 = rootView.findViewById(R.id.imageView11);
+
 
         // Ajouter un OnClickListener à l'image imageView9
         imageView9.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // Créer une intention pour démarrer CategoryActivity
-                Intent intent = new Intent(getActivity(), CategoryActivity.class);
+                Intent intent = new Intent(getActivity(), BooksActivity.class);
+
+                // Démarrer CategoryActivity
+                startActivity(intent);
+            }
+
+
+        });
+        imageView10.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Créer une intention pour démarrer CategoryActivity
+                Intent intent = new Intent(getActivity(), CarsActivity.class);
 
                 // Démarrer CategoryActivity
                 startActivity(intent);
             }
         });
+        imageView11.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Créer une intention pour démarrer CategoryActivity
+                Intent intent = new Intent(getActivity(), ElectronicsActivity.class);
 
+                // Démarrer CategoryActivity
+                startActivity(intent);
+            }
+        });
         return rootView;
-    }
-}
+
+    }}

@@ -94,6 +94,14 @@
                             android:contentDescription="Add Image"
                             android:focusable="true"
                             android:src="@android:color/transparent" />
+                        <ProgressBar
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/progressBar"
+                            android:layout_gravity="center"
+                            android:indeterminateTint="@color/teel_200"
+                            android:visibility="invisible"/>
+
 
 
                     </LinearLayout>

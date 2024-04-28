@@ -1,213 +1,203 @@
 package com.example.swapit;
 
 import android.app.Activity;
+import android.content.ContentResolver;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
+import android.webkit.MimeTypeMap;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import androidx.activity.result.ActivityResultLauncher;
-import androidx.activity.result.contract.ActivityResultContracts;
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-
 import androidx.fragment.app.Fragment;
 
+import com.bumptech.glide.Glide;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
-import android.util.Log;
-
 
 public class addFragment extends Fragment {
 
-    private static final int MAX_IMAGES = 3;
-    private final ArrayList<Uri> imageUris = new ArrayList<>();
-    private DatabaseReference mDatabase;
-    private ImageView imageView1;
-    private ImageView imageView2;
-    private ImageView imageView3;
-    private final ActivityResultLauncher<Intent> galleryLauncher = registerForActivityResult(
-            new ActivityResultContracts.StartActivityForResult(),
-            result -> {
-                if (result.getResultCode() == Activity.RESULT_OK && result.getData() != null) {
-                    handleGalleryResult(result.getData());
-                }
-            }
-    );
+    private ImageView imageView1, imageView2, imageView3;
+    private EditText nameEditText, descriptionEditText, phoneEditText, locationEditText;
+    private Button addButton;
+    private ProgressBar progressBar;
+    private DatabaseReference databaseReference;
+    private StorageReference storageReference;
+    private Spinner categorySpinner;
+    private final Uri[] imageUris = new Uri[3]; // Array to store 3 image URIs
 
-    @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.add_fragment, container, false);
-        mDatabase = FirebaseDatabase.getInstance().getReference();
 
-        final EditText nameEditText = view.findViewById(R.id.nameEditText);
-        final EditText descriptionEditText = view.findViewById(R.id.descriptionEditText);
-        final EditText locationEditText = view.findViewById(R.id.locationEditText);
-        final EditText phoneEditText = view.findViewById(R.id.phoneEditText);
-        Button addButton = view.findViewById(R.id.addButton);
-        final Button imageCardView = view.findViewById(R.id.button7);
-
+        // Initialize views
         imageView1 = view.findViewById(R.id.imageView1);
         imageView2 = view.findViewById(R.id.imageView2);
         imageView3 = view.findViewById(R.id.imageView3);
+        nameEditText = view.findViewById(R.id.nameEditText);
+        descriptionEditText = view.findViewById(R.id.descriptionEditText);
+        phoneEditText = view.findViewById(R.id.phoneEditText);
+        locationEditText = view.findViewById(R.id.locationEditText);
+        addButton = view.findViewById(R.id.addButton);
+        progressBar = view.findViewById(R.id.progressBar);
+        categorySpinner = view.findViewById(R.id.categorySpinner);
 
-        // Initialisation du Spinner pour les catégories
-        Spinner categorySpinner = view.findViewById(R.id.categorySpinner);
-        ArrayAdapter<String> categoryAdapter = new ArrayAdapter<>(requireContext(), android.R.layout.simple_spinner_item, new String[]{"Cars", "Books", "Electronics"});
+        // Firebase references
+        databaseReference = FirebaseDatabase.getInstance().getReference();
+        storageReference = FirebaseStorage.getInstance().getReference();
+
+        // Set up spinner with categories
+        ArrayAdapter        <CharSequence> categoryAdapter = ArrayAdapter.createFromResource(getActivity(), R.array.categories, android.R.layout.simple_spinner_item);
         categoryAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         categorySpinner.setAdapter(categoryAdapter);
 
-        imageCardView.setOnClickListener(v -> openGallery());
+        // Set click listeners for image views
+        imageView1.setOnClickListener(v -> selectImage(0)); // Pass index 0 for imageView1
+        imageView2.setOnClickListener(v -> selectImage(1)); // Pass index 1 for imageView2
+        imageView3.setOnClickListener(v -> selectImage(2)); // Pass index 2 for imageView3
 
+        // Set click listener for add button
         addButton.setOnClickListener(v -> {
-            String name = nameEditText.getText().toString().trim();
-            String description = descriptionEditText.getText().toString().trim();
-            String location = locationEditText.getText().toString().trim();
-            String phone = phoneEditText.getText().toString().trim();
-            // Récupérer la catégorie sélectionnée
-            String category = categorySpinner.getSelectedItem().toString();
-            if (!name.isEmpty() && !description.isEmpty() && !location.isEmpty() && !phone.isEmpty()) {
-                addArticleToFirebase(name, description, location, phone,category);
-
-                nameEditText.setText("");
-                descriptionEditText.setText("");
-                locationEditText.setText("");
-                phoneEditText.setText("");
-                // Réinitialiser les images sélectionnées
-                imageUris.clear();
-                // Réinitialiser les ImageView
-                imageView1.setImageResource(android.R.color.transparent);
-                imageView2.setImageResource(android.R.color.transparent);
-                imageView3.setImageResource(android.R.color.transparent);
-            }
+            String selectedCategory = categorySpinner.getSelectedItem().toString();
+            // Upload images to Firebase
+            uploadImagesToFirebase(selectedCategory);
         });
 
         return view;
     }
 
-    private void openGallery() {
-        Intent galleryIntent = new Intent(Intent.ACTION_GET_CONTENT);
-        galleryIntent.setType("image/*");
-        galleryIntent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);
-        galleryLauncher.launch(Intent.createChooser(galleryIntent, "Select Picture"));
+    private void selectImage(int index) {
+        Intent photoPicker = new Intent(Intent.ACTION_GET_CONTENT);
+        photoPicker.setType("image/*");
+        startActivityForResult(photoPicker, index); // Pass index to identify which imageView was clicked
     }
 
-    private void handleGalleryResult(Intent data) {
-        if (data.getClipData() != null) {
-            int count = data.getClipData().getItemCount();
-            for (int i = 0; i < count; i++) {
-                Uri imageUri = data.getClipData().getItemAt(i).getUri();
-                if (imageUris.size() < MAX_IMAGES) {
-                    imageUris.add(imageUri);
-                    // Afficher l'image dans l'ImageView correspondant
-                    displayImageInImageView(imageUri, i);
-                } else {
-                    // Limite d'images atteinte
-                    Toast.makeText(getActivity(), "Maximum number of images reached", Toast.LENGTH_SHORT).show();
-                    break;
-                }
-            }
-        } else if (data.getData() != null) {
-            Uri imageUri = data.getData();
-            if (imageUris.size() < MAX_IMAGES) {
-                imageUris.add(imageUri);
-                // Afficher l'image dans le premier ImageView
-                displayImageInImageView(imageUri, 0);
-            } else {
-                // Limite d'images atteinte
-                Toast.makeText(getActivity(), "Maximum number of images reached", Toast.LENGTH_SHORT).show();
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == Activity.RESULT_OK && data != null && data.getData() != null) {
+            int index = requestCode; // Get index from requestCode
+            imageUris[index] = data.getData();
+            // Show a preview of the selected image based on index
+            if (index == 0) {
+                Glide.with(this).load(imageUris[0]).into(imageView1);
+            } else if (index == 1) {
+                Glide.with(this).load(imageUris[1]).into(imageView2);
+            } else if (index == 2) {
+                Glide.with(this).load(imageUris[2]).into(imageView3);
             }
         }
     }
 
-    private void displayImageInImageView(Uri imageUri, int index) {
-        ImageView imageView;
-        if (index == 0) {
-            imageView = imageView1;
-        } else if (index == 1) {
-            imageView = imageView2;
-        } else if (index == 2) {
-            imageView = imageView3;
-        } else {
-            return;
-        }
-        imageView.setImageURI(imageUri);
-    }
+    private void uploadImagesToFirebase(String category) {
+        List<String> imageUrls = new ArrayList<>();
+        AtomicInteger uploadCount = new AtomicInteger(0); // Utiliser AtomicInteger pour la compteur
 
-    private void addArticleToFirebase(String name, String description, String location, String phone,String category) {
-        // Générer une clé unique pour l'article
-        String articleId = mDatabase.child("articles").child(category).push().getKey();
-        // Créer une map contenant les données de l'article
-        Map<String, Object> articleValues = new HashMap<>();
-        articleValues.put("name", name);
-        articleValues.put("description", description);
-        articleValues.put("location", location);
-        articleValues.put("phone", phone);
-
-        // Référence à l'emplacement dans Firebase Storage où vous souhaitez stocker les images
-        StorageReference storageRef = FirebaseStorage.getInstance().getReference().child("article_images").child(articleId);
-
-        // Compteur pour suivre le nombre d'images téléchargées avec succès
-        AtomicInteger uploadCount = new AtomicInteger(0);
-
-        // Ajouter les images sélectionnées à Firebase Storage
-        for (int i = 0; i < imageUris.size(); i++) {
-            Uri imageUri = imageUris.get(i);
-            String imageName = "image" + (i + 1);
-            articleValues.put(imageName, imageUris.get(i).toString());
-            // Obtenir une référence à l'emplacement où vous souhaitez stocker l'image dans Firebase Storage
-            StorageReference imageRef = storageRef.child(imageName);
-
-            // Télécharger l'image sur Firebase Storage
-            imageRef.putFile(imageUri)
-                    .addOnSuccessListener(taskSnapshot -> {
-                        // Une fois l'image téléchargée avec succès, obtenir son URL de téléchargement
-                        imageRef.getDownloadUrl().addOnSuccessListener(uri -> {
-                            // Ajouter l'URL de téléchargement de l'image à la map des valeurs de l'article
-                            articleValues.put(imageName, uri.toString());
-
-                            // Incrémenter le compteur d'images téléchargées
-                            int count = uploadCount.incrementAndGet();
-
-                            // Vérifier si toutes les images ont été téléchargées
-                            if (count == imageUris.size()) {
-                                // Toutes les images ont été téléchargées, ajouter l'article à la base de données Firebase
-                                mDatabase.child("articles").child(category).child(articleId).setValue(articleValues)
-                                        .addOnSuccessListener(aVoid -> {
-                                            // Données stockées avec succès dans la base de données en temps réel
-                                            Toast.makeText(getActivity(), "Article added successfully", Toast.LENGTH_SHORT).show();
-                                        })
-                                        .addOnFailureListener(e -> {
-                                            // En cas d'échec du stockage dans la base de données en temps réel
-                                            Toast.makeText(getActivity(), "Failed to add article to database", Toast.LENGTH_SHORT).show();
-                                        });
-                            }
-                        });
-                    })
-                    .addOnFailureListener(e -> {
-                        // En cas d'échec du téléchargement de l'image, afficher un message d'erreur
-                        Toast.makeText(getActivity(), "Failed to upload image", Toast.LENGTH_SHORT).show();
+        for (int i = 0; i < 3; i++) {
+            if (imageUris[i] != null) {
+                StorageReference imageRef = storageReference.child("article_images").child(System.currentTimeMillis() + getFileExtension(imageUris[i]));
+                UploadTask uploadTask = imageRef.putFile(imageUris[i]);
+                int finalI = i;
+                uploadTask.addOnSuccessListener(taskSnapshot -> {
+                    imageRef.getDownloadUrl().addOnSuccessListener(downloadUri -> {
+                        imageUrls.add(downloadUri.toString());
+                        int count = uploadCount.incrementAndGet(); // Incrémenter et obtenir la nouvelle valeur du compteur
+                        if (count == 3 || count == getNonNullCount(imageUris)) { // Vérifier si toutes les images sont téléchargées
+                            // Toutes les images téléchargées, procéder à l'opération de base de données
+                            saveDataToDatabase(imageUrls, category);
+                        }
                     });
+                }).addOnFailureListener(e -> {
+                    // Gérer l'échec
+                    Toast.makeText(getActivity(), "Failed to upload image: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                });
+            }
+        }
+    }
+
+    private int getNonNullCount(Uri[] uris) {
+        int count = 0;
+        for (Uri uri : uris) {
+            if (uri != null) {
+                count++;
+            }
+        }
+        return count;
+    }
+
+
+
+
+
+    private void saveDataToDatabase(List<String> imageUrls, String category) {
+        String name = nameEditText.getText().toString();
+        String description = descriptionEditText.getText().toString();
+        String phone = phoneEditText.getText().toString();
+        String location = locationEditText.getText().toString();
+        String imageUrlString = imageUrl1.toString();// Vérifiez si la liste d'URL d'image est vide
+
+        // Vérifiez si tous les champs requis sont initialisés
+        if (name.isEmpty() || description.isEmpty() || phone.isEmpty() || location.isEmpty() || imageUrl1 == null) {
+            Toast.makeText(getActivity(), "Please fill in all required fields", Toast.LENGTH_SHORT).show();
+            return; // Arrêtez l'exécution de la méthode si l'un des champs requis est vide
         }
 
-        mDatabase.child(category).child(articleId).setValue(articleValues);
-        Toast.makeText(getActivity(), "Article added successfully", Toast.LENGTH_SHORT).show();
+        // Tous les champs sont initialisés, créez l'objet DataClass et enregistrez les données dans la base de données
+        DataClass articleData = new DataClass(name, description, phone, location, imageUrls, category,  imageUrl1);
+
+// Convertir l'objet DataClass en un objet Map
+        Map<String, Object> articleValues = articleData.toMap();
+
+// Créer un nouvel objet pour stocker les valeurs mises à jour
+        Map<String, Object> childUpdates = new HashMap<>();
+        String articleKey = databaseReference.child(category).push().getKey();
+        childUpdates.put("/" + category + "/" + articleKey, articleValues);
+
+// Enregistrer les données dans Firebase
+        databaseReference.updateChildren(childUpdates)
+                .addOnSuccessListener(aVoid -> {
+                    Toast.makeText(getActivity(), "Article uploaded successfully", Toast.LENGTH_SHORT).show();
+                    clearFields();
+                })
+                .addOnFailureListener(e -> Toast.makeText(getActivity(), "Failed to upload article: " + e.getMessage(), Toast.LENGTH_SHORT).show());
+        }
+
+
+
+    private void clearFields() {
+        nameEditText.getText().clear();
+        descriptionEditText.getText().clear();
+        phoneEditText.getText().clear();
+        locationEditText.getText().clear();
+        imageView1.setImageResource(android.R.color.transparent); // Clear the preview images
+        imageView2.setImageResource(android.R.color.transparent);
+        imageView3.setImageResource(android.R.color.transparent);
+        Arrays.fill(imageUris, null); // Clear the image URIs
+    }
+
+    private String getFileExtension(Uri uri) {
+        ContentResolver contentResolver = getActivity().getContentResolver();
+        MimeTypeMap mimeTypeMap = MimeTypeMap.getSingleton();
+        return mimeTypeMap.getExtensionFromMimeType(contentResolver.getType(uri));
     }
 }
+
