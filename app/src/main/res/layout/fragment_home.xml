@@ -31,7 +31,7 @@
                 android:layout_width="411dp"
                 android:layout_height="43dp"
                 android:layout_marginTop="36dp"
-                android:background="@drawable/btn_bg"
+                android:background="@drawable/search"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
@@ -81,6 +81,24 @@
 
                 </LinearLayout>
             </HorizontalScrollView>
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="350dp"
+                android:layout_height="32dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="45dp"
+                android:text="latest articals "
+                android:textAlignment="center"
+                android:textAllCaps="true"
+                android:textColor="@color/yello"
+                android:textSize="25sp"
+                android:textStyle="bold|italic"
+                app:layout_constraintBottom_toTopOf="@+id/row1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/amazonImage" />
 
             <LinearLayout
                 android:id="@+id/row1"

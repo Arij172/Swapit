@@ -16,7 +16,7 @@ public class BookDetailsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.produit2);
+        setContentView(R.layout.activity_product1);
 
         // Initialiser les vues
         ImageView imageView1 = findViewById(R.id.imageView1);

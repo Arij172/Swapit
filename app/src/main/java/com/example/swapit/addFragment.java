@@ -153,33 +153,36 @@ public class addFragment extends Fragment {
         String description = descriptionEditText.getText().toString();
         String phone = phoneEditText.getText().toString();
         String location = locationEditText.getText().toString();
-        String imageUrlString = imageUrl1.toString();// Vérifiez si la liste d'URL d'image est vide
 
         // Vérifiez si tous les champs requis sont initialisés
-        if (name.isEmpty() || description.isEmpty() || phone.isEmpty() || location.isEmpty() || imageUrl1 == null) {
+        if (name.isEmpty() || description.isEmpty() || phone.isEmpty() || location.isEmpty() || imageUrls.isEmpty()) {
             Toast.makeText(getActivity(), "Please fill in all required fields", Toast.LENGTH_SHORT).show();
             return; // Arrêtez l'exécution de la méthode si l'un des champs requis est vide
         }
 
-        // Tous les champs sont initialisés, créez l'objet DataClass et enregistrez les données dans la base de données
-        DataClass articleData = new DataClass(name, description, phone, location, imageUrls, category,  imageUrl1);
+        // Prenez la première URL d'image de la liste
+        String imageUrl = imageUrls.get(0);
 
-// Convertir l'objet DataClass en un objet Map
+        // Tous les champs sont initialisés, créez l'objet DataClass et enregistrez les données dans la base de données
+        DataClass articleData = new DataClass(name, description, phone, location, imageUrls, category, imageUrl);
+
+        // Convertir l'objet DataClass en un objet Map
         Map<String, Object> articleValues = articleData.toMap();
 
-// Créer un nouvel objet pour stocker les valeurs mises à jour
+        // Créer un nouvel objet pour stocker les valeurs mises à jour
         Map<String, Object> childUpdates = new HashMap<>();
         String articleKey = databaseReference.child(category).push().getKey();
         childUpdates.put("/" + category + "/" + articleKey, articleValues);
 
-// Enregistrer les données dans Firebase
+        // Enregistrer les données dans Firebase
         databaseReference.updateChildren(childUpdates)
                 .addOnSuccessListener(aVoid -> {
                     Toast.makeText(getActivity(), "Article uploaded successfully", Toast.LENGTH_SHORT).show();
                     clearFields();
                 })
                 .addOnFailureListener(e -> Toast.makeText(getActivity(), "Failed to upload article: " + e.getMessage(), Toast.LENGTH_SHORT).show());
-        }
+    }
+
 
 
 
