@@ -14,9 +14,9 @@
         android:icon="@drawable/add"
         />
     <item
-        android:id="@+id/notifications"
-        android:title="Notification"
-        android:icon="@drawable/baseline_notifications_24"
+        android:id="@+id/search"
+        android:title="Search"
+        android:icon="@drawable/baseline_search_24"
         />
 
     <item

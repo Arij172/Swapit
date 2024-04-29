@@ -21,11 +21,13 @@ public class CarsActivity extends AppCompatActivity implements CarsAdapter.OnIte
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cars);
 
-        RecyclerView recyclerView = findViewById(R.id.recyclerView);
+        RecyclerView recyclerView = findViewById(R.id.searchResultsListView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         carsList = new ArrayList<>();
         carsAdapter = new CarsAdapter(carsList);
         recyclerView.setAdapter(carsAdapter);
+        // Définir l'écouteur de clic sur l'adaptateur
+        carsAdapter.setOnItemClickListener(this);
 
         databaseReference = FirebaseDatabase.getInstance().getReference().child("Cars");
 

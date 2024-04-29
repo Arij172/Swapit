@@ -12,6 +12,7 @@ import com.bumptech.glide.Glide;
 import java.util.List;
 
 public class CarDetailsActivity extends AppCompatActivity {
+    private DataClass car;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

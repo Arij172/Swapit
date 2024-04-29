@@ -26,26 +26,7 @@
                 app:srcCompat="@drawable/a5"
                 tools:ignore="ContentDescription" />
 
-            <SearchView
-                android:id="@+id/searchView"
-                android:layout_width="411dp"
-                android:layout_height="43dp"
-                android:layout_marginTop="36dp"
-                android:background="@drawable/search"
-                android:visibility="invisible"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:visibility="invisible">
 
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/recyclerView"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_below="@id/searchView" />
-
-            </SearchView>
 
             <HorizontalScrollView
                 android:id="@+id/amazonImage"

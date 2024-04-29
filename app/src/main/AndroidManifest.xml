@@ -46,7 +46,7 @@
             android:name=".MainActivity3"
             android:exported="false" />
         <activity
-            android:name=".notificationFragment"
+            android:name=".searchfragment"
             android:exported="false" />
         <activity
             android:name=".SettingFragment"

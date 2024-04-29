@@ -27,12 +27,15 @@ public class MainActivity3 extends AppCompatActivity {
                 replaceFragment(new HomeFragment());
             } else if (item.getItemId() == R.id.favorites) {
                 replaceFragment(new favoritesFragment());
-            } else if (item.getItemId() == R.id.notifications) {
-                replaceFragment(new notificationFragment());
+            } else if (item.getItemId() == R.id.search) {
+                replaceFragment(new searchfragment());
+
+
             } else if (item.getItemId() == R.id.settings) {
                 replaceFragment(new SettingFragment());
             } else if (item.getItemId() == R.id.add) {
                 replaceFragment(new addFragment());
+
 
             }
             return true;

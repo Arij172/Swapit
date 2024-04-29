@@ -9,9 +9,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import com.example.swapit.DataClass;
-import com.example.swapit.FavoritesAdapter;
-import com.example.swapit.FavoritesDatabaseHelper;
+
 import java.util.List;
 
 public class favoritesFragment extends Fragment {
@@ -33,7 +31,7 @@ public class favoritesFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.favourites_fragment, container, false);
-        recyclerView = rootView.findViewById(R.id.recyclerView);
+        recyclerView = rootView.findViewById(R.id.searchResultsListView);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         favoritesAdapter = new FavoritesAdapter(favoritesList);
         recyclerView.setAdapter(favoritesAdapter);

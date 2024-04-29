@@ -21,7 +21,7 @@ public class BooksActivity extends AppCompatActivity implements BooksAdapter.OnI
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_books);
 
-        RecyclerView recyclerView = findViewById(R.id.recyclerView);
+        RecyclerView recyclerView = findViewById(R.id.searchResultsListView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         booksList = new ArrayList<>();
         booksAdapter = new BooksAdapter(booksList);

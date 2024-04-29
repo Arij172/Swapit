@@ -31,7 +31,7 @@ public class CategoryActivity extends AppCompatActivity {
         articleList = new ArrayList<>();
 
         // Initialisation du RecyclerView
-        recyclerView = findViewById(R.id.recyclerView);
+        recyclerView = findViewById(R.id.searchResultsListView);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 

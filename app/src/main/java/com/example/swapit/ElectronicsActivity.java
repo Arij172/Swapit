@@ -21,7 +21,7 @@ public class ElectronicsActivity extends AppCompatActivity implements Electronic
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_electronics);
 
-        RecyclerView recyclerView = findViewById(R.id.recyclerView);
+        RecyclerView recyclerView = findViewById(R.id.searchResultsListView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         electronicsList = new ArrayList<>();
         electronicsAdapter = new ElectronicsAdapter(electronicsList);
