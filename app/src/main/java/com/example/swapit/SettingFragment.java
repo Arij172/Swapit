@@ -60,6 +60,20 @@ public class SettingFragment extends Fragment {
             }
         });
 
+        Button button3 = rootView.findViewById(R.id.button3);
+
+        // Ajouter un écouteur de clic sur le bouton
+        button3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Créer un Intent pour ouvrir la nouvelle activité
+                Intent intent = new Intent(getActivity(),confidentiality.class);
+
+                // Démarrer la nouvelle activité en utilisant l'Intent
+                startActivity(intent);
+            }
+        });
+
         return rootView;
     }
 }

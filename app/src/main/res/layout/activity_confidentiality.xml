@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".confidentiality"
+    android:background="@drawable/b4">
+
+    <TextView
+        android:id="@+id/textView19"
+        android:layout_width="158dp"
+        android:layout_height="33dp"
+        android:text="Confidentiality"
+        android:textColor="@color/beige"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.044" />
+
+    <ImageView
+        android:id="@+id/imageView16"
+        android:layout_width="356dp"
+        android:layout_height="322dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.394"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.277"
+        app:srcCompat="@drawable/o" />
+
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="286dp"
+        android:layout_height="241dp"
+        android:text="Swap It  encompasses ensuring the privacy and security of users' information and transactions . Given that our platform facilitates the exchange of various items involving cars, electronics, and books, including potentially valuable and personal possessions, maintaining confidentiality is paramount to fostering trust among users. This involves implementing robust data encryption protocols, secure communication channels, and stringent access controls to safeguard users' personal information, transaction details, and item listings. By prioritizing confidentiality, our application can provide users with the assurance that their sensitive data remains protected throughout the swapping process, thereby enhancing their overall experience and encouraging active participation in your platform."
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        android:textStyle="italic"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.857" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

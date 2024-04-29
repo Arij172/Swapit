@@ -9,13 +9,16 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="431dp"
-        android:layout_height="215dp"
-        android:src="@drawable/b"
+        android:layout_width="434dp"
+        android:layout_height="183dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.344"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/p1"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="126dp"
-        tools:layout_editor_absoluteY="-14dp" />
+        tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/textView"
