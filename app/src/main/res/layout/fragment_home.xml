@@ -32,10 +32,12 @@
                 android:layout_height="43dp"
                 android:layout_marginTop="36dp"
                 android:background="@drawable/search"
+                android:visibility="invisible"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                app:layout_constraintTop_toTopOf="parent"
+                tools:visibility="invisible">
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/recyclerView"
@@ -135,7 +137,7 @@
                             android:layout_below="@+id/clothingImage"
                             android:layout_centerHorizontal="true"
 
-                            android:text="Clothing"
+                            android:text="Hyundai i10"
                             android:textColor="@color/teel_200"
                             android:textSize="20sp"
                             tools:layout_editor_absoluteX="70dp"
@@ -143,10 +145,11 @@
 
                         <ImageView
                             android:id="@+id/clothingImage"
-                            android:layout_width="70dp"
-                            android:layout_height="70dp"
+                            android:layout_width="106dp"
+                            android:layout_height="101dp"
                             android:layout_centerHorizontal="true"
-                            android:src="@drawable/n11"
+
+                            app:srcCompat="@drawable/car1"
                             tools:layout_editor_absoluteX="72dp"
                             tools:layout_editor_absoluteY="365dp" />
 
@@ -176,7 +179,7 @@
                             android:layout_below="@+id/elecImage"
                             android:layout_centerHorizontal="true"
 
-                            android:text="Electronics"
+                            android:text="Infinix"
                             android:textColor="@color/teel_200"
                             android:textSize="20sp"
                             tools:layout_editor_absoluteX="253dp"
@@ -184,10 +187,11 @@
 
                         <ImageView
                             android:id="@+id/elecImage"
-                            android:layout_width="70dp"
-                            android:layout_height="70dp"
+                            android:layout_width="116dp"
+                            android:layout_height="93dp"
                             android:layout_centerHorizontal="true"
-                            android:src="@drawable/n11"
+
+                            app:srcCompat="@drawable/infinix"
                             tools:layout_editor_absoluteX="268dp"
                             tools:layout_editor_absoluteY="365dp" />
 
@@ -230,7 +234,7 @@
                             android:layout_below="@+id/homeImage"
                             android:layout_centerHorizontal="true"
 
-                            android:text="Home"
+                            android:text="Rich Dad Poor Dad"
                             android:textColor="@color/teel_200"
                             android:textSize="20sp"
                             tools:layout_editor_absoluteX="178dp"
@@ -238,10 +242,11 @@
 
                         <ImageView
                             android:id="@+id/homeImage"
-                            android:layout_width="70dp"
-                            android:layout_height="70dp"
+                            android:layout_width="134dp"
+                            android:layout_height="68dp"
                             android:layout_centerHorizontal="true"
-                            android:src="@drawable/n11"
+
+                            app:srcCompat="@drawable/book"
                             tools:layout_editor_absoluteX="170dp"
                             tools:layout_editor_absoluteY="550dp" />
 
