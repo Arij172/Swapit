@@ -9,36 +9,33 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="461dp"
-        android:layout_height="191dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.196"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
+        android:layout_width="431dp"
+        android:layout_height="215dp"
+        android:src="@drawable/b"
         app:srcCompat="@drawable/p1"
-        tools:ignore="MissingConstraints" />
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="126dp"
+        tools:layout_editor_absoluteY="-14dp" />
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="248dp"
-        android:layout_height="98dp"
+        android:layout_width="276dp"
+        android:layout_height="132dp"
         android:text="WELCOME TO SWAPIT"
         android:textColor="@color/teel_200"
         android:textSize="40sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.403"
+        app:layout_constraintHorizontal_bias="0.472"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.613" />
+        app:layout_constraintVertical_bias="0.627" />
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="319dp"
-        android:layout_height="97dp"
+        android:layout_width="342dp"
+        android:layout_height="125dp"
         android:text="Seamless Swaps, Boundless Opportunities: Exchange Anything, Anywhere with Swap it, Your Exchange Hub."
         android:textAlignment="gravity"
         android:textAllCaps="false"
@@ -47,10 +44,10 @@
         android:textStyle="normal|italic"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.473"
+        app:layout_constraintHorizontal_bias="0.552"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:layout_constraintVertical_bias="0.515" />
+        app:layout_constraintVertical_bias="1.0" />
 
     <Button
         android:id="@+id/button"
